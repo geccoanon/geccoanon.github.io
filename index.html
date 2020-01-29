@@ -1,0 +1,205 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+body {
+  overflow-x: hidden;
+}
+.scroll-down {
+  width: 80px;
+  height: 40px;
+  right: 10px;
+  bottom: 10px;
+  position: absolute;
+  font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #FFFFFF;
+  opacity: 0;
+  -webkit-transition: opacity 2s ease-in;
+  -moz-transition: opacity 2s ease-in;
+  -o-transition: opacity 2s ease-in;
+  -ms-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
+}
+.scroll-down span {
+  margin-top: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-100%, 0) rotate(45deg);
+  transform-origin: 100% 100%;
+  height: 2px;
+  width: 10px;
+  background: #FFFFFF;
+}
+.scroll-down span:nth-of-type(2) {
+  transform-origin: 0 100%;
+  transform: translate(0, 0) rotate(-45deg);
+}
+.spinner {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  -webkit-animation: rotation .6s infinite linear;
+  -moz-animation: rotation .6s infinite linear;
+  -o-animation: rotation .6s infinite linear;
+  animation: rotation .6s infinite linear;
+  border-left: 6px solid rgba(0, 174, 239, .15);
+  border-right: 6px solid rgba(0, 174, 239, .15);
+  border-bottom: 6px solid rgba(0, 174, 239, .15);
+  border-top: 6px solid rgba(0, 174, 239, .8);
+  border-radius: 100%;
+  top: calc(50% - 100px);
+  left: calc(50% - 80px);
+  right: auto;
+  bottom: auto;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+.transparent {
+  opacity: 0;
+}
+
+figcaption {
+  padding: 0.5em;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+dt-article figcaption {
+  padding: 0.5em;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+dt-article figcaption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+dt-article figcaption b {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+*.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+*.svgunselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background: none;
+    pointer-events: none;
+}
+</style>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- roboto font -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+
+<!--<script src="lib/jquery-1.12.4.min.js"></script>
+<script src="lib/mobile-detect.min.js"></script>-->
+<script src="lib/template.v1.js"></script>
+
+<script type="text/front-matter">
+  title: "Deep Neuroevolution of Self-Interpretable Agents"
+  description: ""
+</script>
+<body>
+<div style="text-align: center;">
+<table style="width: 100%;" cellspacing="0" cellpadding="0"><tr>
+<td style="width: 50%;"><video class="b-lazy" data-src="assets/mp4/carracing_nomod_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video></td>
+<td style="width: 50%;"><video class="b-lazy" data-src="assets/mp4/takecover_nomod_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video></td>
+</tr></table>
+<!--
+<video class="b-lazy" data-src="assets/mp4/carracing_nomod_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="display: block; margin: auto; width: 50%;" ></video>
+<video class="b-lazy" data-src="assets/mp4/takecover_nomod_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="display: block; margin: auto; width: 50%;" ></video>
+-->
+<table style="width: 100%;" cellspacing="0" cellpadding="0"><tr>
+<td width="100%">
+<figcaption style="text-align: left;">
+<b>Examples of self-attention agents.</b> We evolve agents that attend to a small area of its visual input critical for its survival, allowing for interpretable agents that are not only compact, but also more generalizable. In CarRacing (left), our agent mostly attends to the road borders, but shifts its focus to the turns before it changes heading directions. In DoomTakeCover (right), The agent is able to focus on fireballs and monsters, consistent with our intuitions.
+</figcaption>
+</tr></table>
+
+</div>
+
+<dt-article id="dtbody">
+
+<dt-byline class="l-page transparent"></dt-byline>
+<h2>Deep Neuroevolution of Self-Interpretable Agents</h2>
+<p></p>
+<dt-byline class="l-page" id="authors_section" hidden>
+<div class="byline">
+  <div class="authors">
+    <div class="author">
+        <a class="name" href="https://gecco-2020.sigevo.org/">Anonymous</a>
+        <a class="affiliation" href="https://gecco-2020.sigevo.org/">Submission</a>
+    </div>
+  </div>
+  <div class="date">
+    <div class="month">Feb 10</div>
+    <div class="year">2020</div>
+  </div>
+</div>
+</dt-byline>
+</dt-byline><h2>Abstract</h2>
+<p>While reinforcement learning (RL) methods in existing literature can successfully solve many vision based tasks, it is often difficult to understand an agent's policy based on its visual input alone, without using dedicated tools for interpretability. In this paper, we investigate the use of self-attention to create agents that observe its environment similarly to how humans see our own world. By constraining agents to access only a small fraction of its visual input, we show that their policies are directly interpretable in pixel space. Furthermore, we demonstrate that neuroevolution is ideal for training self-attention architectures for RL tasks, because we can remove unnecessary complexity needed for gradient-based methods, resulting in a much simpler architecture, and also allowing us to incorporate modules that can include discrete, non-differentiable operations that are useful for our agent. We argue that self-attention has similar properties as indirect encoding methods, in the sense that large implicit weight matrices are generated from a small number of key-query parameters, thus enabling our agent to solve challenging vision based tasks with at least 1000x less parameters than existing methods. Moreover, since our agent learns to attend to only task critical visual hints, they are able to generalize to environments where task irrelevant elements are modified while conventional methods fail.</p>
+<hr>
+<h2>Supplementary Videos</h2>
+<p>Below are additional videos that accompany the paper.</p>
+</dt-article>
+<dt-appendix>
+<h2>Open Source Code</h2>
+<p>Code to reproduce results will be released upon publication.</p>
+</dt-appendix>
+</dt-appendix>
+</body>
+<script type="text/bibliography">
+@ARTICLE{openai_gym,
+  author = {Brockman, G. and Cheung, V. and Pettersson, L. and Schneider, J. and Schulman, J. and Tang, J. and Zaremba, W.},
+  title={OpenAI Gym},
+  journal={Preprint arXiv:1606.01540},
+  year = 2016,
+  month = jun,
+  url = {https://arxiv.org/abs/1606.01540},
+}
+</script>
+<script src="lib/blazy.js"></script>
+<script>
+  // blazy code
+  var bLazy = new Blazy({
+    success: function(){
+      updateCounter();
+    }
+  });
+
+  // not needed, only here to illustrate amount of loaded images
+  var imageLoaded = 0;
+
+  function updateCounter() {
+    imageLoaded++;
+    console.log("blazy image loaded: "+imageLoaded);
+  }
+</script>
