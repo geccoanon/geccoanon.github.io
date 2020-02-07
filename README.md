@@ -1,6 +1,6 @@
 # Neuroevolution of Self-Interpretable Agents
 
-This repo contains the source for the anonymous submission for GECCO 2020.
+This repo contains the videos for the anonymous submission for GECCO 2020.
 
 ### If all you want to do is view the page locally (i.e. you are a reviewer)
 

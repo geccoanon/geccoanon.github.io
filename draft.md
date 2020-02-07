@@ -3,7 +3,7 @@
 While reinforcement learning methods in existing literature can solve many vision based tasks, it is often difficult to understand an agent’s policy without using dedicated tools for interpretability.
 In this paper, we investigate the use of self-attention to create agents that observe its environment similarly to how humans see the world. By constraining agents to access only a small fraction of its visual input, we show that their policies are directly interpretable in pixel space.
 We demonstrate that neuroevolution is ideal for training self-attention architectures for RL tasks, because we can remove unnecessary complexity needed for gradient-based methods, resulting in a much simpler architecture, and also allowing us to incorporate modules that can include discrete, non-differentiable operations that are useful for our agent.
-We argue that self-attention has similar properties as indirect encoding methods, in the sense that large implicit weight matrices are generated from a small number of key-query parameters, thus enabling our agent to solve challenging vision based tasks with at least 1000x less parameters than existing methods.
+We argue that self-attention has similar properties as indirect encoding methods, in the sense that large implicit weight matrices are generated from a small number of key-query parameters, thus enabling our agent to solve challenging vision based tasks with at least 1000x fewer parameters than existing methods.
 Since our agent learns to attend to only task critical visual hints, they are able to generalize to environments where task irrelevant elements are modified while conventional methods fail.
 
 ______
@@ -31,8 +31,8 @@ We evaluate our method in two vision-based RL tasks: CarRacing<dt-cite key="CarR
 <td style="width: 40%;border: 1px solid transparent;"><video src="assets/mp4/takecover_nomod_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
 </tr>
 </table>
-<figcaption style="text-align: left; color:#FF6C00;">Self-attention agent playing CarRacing and DoomTakeCover.</figcaption>
-<figcaption style="text-align: left;">
+<figcaption style="text-align: left; color:#FF6C00; padding-top: 0;">Self-attention agent playing CarRacing and DoomTakeCover.</figcaption>
+<figcaption style="text-align: left; padding-top: 0;">
 Left: Screenshot of actual game environment presented to humans.<br/>Right: Resized images presented to our agent as visual input, and also its attention highlighted in white patches.<br/>
 </figcaption>
 </div>
@@ -46,7 +46,7 @@ but it is not solved until recently by <dt-cite key="ha2018worldmodels,DBLP:conf
 
 <div style="text-align: center;">
 <img class="b-lazy" src=data:image/png;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="assets/png/param_count.png" style="display: block; margin: auto; width: 100%;"/>
-<figcaption style="text-align: left;">
+<figcaption style="text-align: left; padding-top: 0;">
 <b>Learnable Parameters&nbsp;</b> GA, DIP share the same world model architecture. The <i>genotype</i> in our indirect-encoding self-attention module are the fully connected (FC) layers that include corresponding bias terms, and the agent's controller is a small LSTM.<br/>
 </figcaption>
 </div>
@@ -62,8 +62,8 @@ While a pre-trained <dt-cite key="ha2018worldmodels">world model</dt-cite> is ab
 Not only is our agent able to solve both tasks, it also outperformed existing methods. Here is a summary of our agent's results:
 
 <div style="text-align: left;">
-<img class="b-lazy" src=data:image/png;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="assets/png/result_base_bigger.png" style="display: block; margin: auto; width: 95%;"/>
-<figcaption style="text-align: left;">
+<img class="b-lazy" src=data:image/png;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="assets/png/result_base_bigger.png" style="display: block; margin: auto; width: 100%;"/>
+<figcaption style="text-align: left; padding-top: 0;">
 <b>CarRacing and DoomTakeCover Results&nbsp;</b> We report the average score over 100 consecutive tests with standard deviations.
 For reference, the required scores above which the tasks are considered solved are also included. Best scores are highlighted.<br/>
 </figcaption>
@@ -79,7 +79,7 @@ The opaqueness indicates the importance, the whiter the more important.
 <td style="width: 50%;border: 1px solid transparent;"><video src="assets/mp4/takecover_nomod_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
 </tr>
 </table>
-<figcaption style="text-align: left;">
+<figcaption style="text-align: left; padding-top: 0;">
 CarRacing and DoomTakeCover attention patches.<br/>
 </figcaption>
 </div>
@@ -95,7 +95,7 @@ We also notice that the scores from all methods have large variance in DoomTakeC
 This seems to be caused by the environment's design: some fireballs might be out of the agent's sight but are actually approaching, the agent can be hit by them when it's dodging other fireballs that are in the vision.
 
 Through these tasks, we are able to give a positive answer to the first question, *is our agent able to solve challenging vision-based RL tasks? If so, what are the advantages over other methods that solved the same tasks?*
-Our agent is able to solve challenging vision-based RL tasks, it is efficient in terms of being able to reach higher scores with significantly less parameters.
+Our agent is able to solve challenging vision-based RL tasks, it is efficient in terms of being able to reach higher scores with significantly fewer parameters.
 Furthermore, it is self-interpretable and reasons coherently as humans do because it is able to make decisions based on spatial information extracted from visual inputs.
 
 ## Generalize to Modified Environments
@@ -106,12 +106,9 @@ While there are infinitely many ways to modify an environment,
 our modifications respect one important principle: the modifications should not cause changes of the core mission or critical information loss.
 With this design principle in mind we present the following modifications:
 
-- **CarRacing - Color Perturbation** We randomly perturb the background color. At the beginning of each episode we sample two 3D vectors as perturbations uniformly from the interval $[-0.2, 0.2]$ and add respectively to the lane and grass field RGB vectors. The perturbed colors remain constant throughout an episode.
+- **CarRacing--Color Perturbation&nbsp;** We randomly perturb the background color. At the beginning of each episode we sample two 3D vectors as perturbations uniformly from the interval $[-0.2, 0.2]$ and add respectively to the lane and grass field RGB vectors. The perturbed colors remain constant throughout an episode.
 
 <div style="text-align: center;">
-<figcaption style="text-align: left;">
-<!--<b>CarRacing - Color Perturbation&nbsp;</b> We randomly perturb the background color. At the beginning of each episode we sample two 3D vectors as perturbations uniformly from the interval [-0.2, 0.2] and add respectively to the lane and grass field RGB vectors. The perturbed colors remain constant throughout an episode.<br/>-->
-</figcaption>
 
 <table style="width: 100%;" cellspacing="0" cellpadding="0">
 <tr>
@@ -122,29 +119,26 @@ With this design principle in mind we present the following modifications:
 <figcaption style="text-align: left;">
 Original Environment (Score: 914±15) vs Color Perturbation (Score: 898±56)<br/>
 </figcaption>
-
+<br/>
 <table style="width: 100%;" cellspacing="0" cellpadding="0">
 <tr>
-<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod1_wm.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
-<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod1_ga.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
-<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod1_ours.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod1_wm.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%; padding-top: 0;" ></video></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod1_ga.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%; padding-top: 0;" ></video></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod1_ours.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%; padding-top: 0;" ></video></td>
 </tr>
 <tr>
-<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left;">World Models (Score: 851±130)</figcaption></td>
-<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left;">GA (Score: 160±304)</figcaption></td>
-<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left;">Ours (Score: 898±56)</figcaption></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left; padding-top: 0;">World Models (Score: 851±130)</figcaption></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left; padding-top: 0;">GA (Score: 160±304)</figcaption></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left; padding-top: 0;">Ours (Score: 898±56)</figcaption></td>
 </tr>
 </table>
 
 </div>
 <br/>
 
-- **CarRacing - Vertical Frames** We add black vertical bars to the left and right sides of the screen. The window size of CarRacing is $800 \times 1000$, we add two vertical bars of width 75 on the two sides of the window.
+- **CarRacing--Vertical Frames&nbsp;** We add black vertical bars to the left and right sides of the screen. The window size of CarRacing is 800px × 1000px, we add two vertical bars of width 75px on the two sides of the window.
 
 <div style="text-align: center;">
-<figcaption style="text-align: left;">
-<!--<b>CarRacing - Color Perturbation&nbsp;</b> We randomly perturb the background color. At the beginning of each episode we sample two 3D vectors as perturbations uniformly from the interval [-0.2, 0.2] and add respectively to the lane and grass field RGB vectors. The perturbed colors remain constant throughout an episode.<br/>-->
-</figcaption>
 
 <table style="width: 100%;" cellspacing="0" cellpadding="0">
 <tr>
@@ -155,25 +149,70 @@ Original Environment (Score: 914±15) vs Color Perturbation (Score: 898±56)<br/
 <figcaption style="text-align: left;">
 Original Environment (Score: 914±15) vs Vertical Frames (Score: 900±35)<br/>
 </figcaption>
-
+<br/>
 <table style="width: 100%;" cellspacing="0" cellpadding="0">
 <tr>
-<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod2_wm.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
-<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod2_ga.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
-<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod2_ours.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod2_wm.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%; padding-top: 0;" ></video></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod2_ga.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%; padding-top: 0;" ></video></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/carracing_mod2_ours.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%; padding-top: 0;" ></video></td>
 </tr>
 <tr>
-<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left;">World Models (Score: 166±137)</figcaption></td>
-<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left;">GA (Score: 675±254)</figcaption></td>
-<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left;">Ours (Score: 900±35)</figcaption></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left; padding-top: 0;">World Models (Score: 166±137)</figcaption></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left; padding-top: 0;">GA (Score: 675±254)</figcaption></td>
+<td style="width: 33.3%;border: 1px solid transparent;"><figcaption style="text-align: left; padding-top: 0;">Ours (Score: 900±35)</figcaption></td>
 </tr>
 </table>
 
 </div>
 <br/>
 
-- **DoomTakeCover - Higher Walls** We make the wall higher and keep all other settings.
-- **DoomTakeCover - Different Floor** We change the texture of the floor and keep all other settings.
+- **DoomTakeCover--Higher Walls&nbsp;** We make the wall higher and keep all other settings.
+
+<div style="text-align: center;">
+
+<table style="width: 100%;" cellspacing="0" cellpadding="0">
+<tr>
+<td style="width: 50%;border: 1px solid transparent;"><video src="assets/mp4/takecover_nomod_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
+<td style="width: 50%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/takecover_mod1_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
+</tr>
+</table>
+<figcaption style="text-align: left; padding-top: 0;">
+Original Environment (Score: 1125±589) vs Higher Walls (Score: 934±560)<br/>
+</figcaption>
+<br/>
+<video src="assets/mp4/takecover_mod1_wm_all.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 97.5%;"></video>
+<figcaption style="text-align: left; padding-top: 0;">
+World model baseline (Score: 243±104)<br/>
+<i>Left:</i> Rendering of augmented game environment. 
+<i>Center:</i> Agent's visual input. 
+<i>Right:</i> Reconstruction of what the baseline agent actually sees, based on its world model trained only on the original environment.
+</figcaption>
+</div>
+<br/>
+
+- **DoomTakeCover--Different Floor Texture&nbsp;** We change the texture of the floor and keep all other settings.
+
+<div style="text-align: center;">
+
+<table style="width: 100%;" cellspacing="0" cellpadding="0">
+<tr>
+<td style="width: 50%;border: 1px solid transparent;"><video src="assets/mp4/takecover_nomod_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
+<td style="width: 50%;border: 1px solid transparent;"><video class="b-lazy" data-src="assets/mp4/takecover_mod2_ours_att.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 95%;" ></video></td>
+</tr>
+</table>
+<figcaption style="text-align: left; padding-top: 0;">
+Original Environment (Score: 1125±589) vs Different Floor Texture (Score: 1120±613)<br/>
+</figcaption>
+<br/>
+<video src="assets/mp4/takecover_mod2_wm_all.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 97.5%;"></video>
+<figcaption style="text-align: left; padding-top: 0;">
+World model baseline (Score: 218±69)<br/>
+<i>Left:</i> Rendering of augmented game environment. 
+<i>Center:</i> Agent's visual input. 
+<i>Right:</i> Reconstruction of what the baseline agent actually sees, based on its world model trained only on the original environment.
+</figcaption>
+</div>
+<br/>
 
 For the purpose of comparison, we used the released code (and pre-trained models, if available) from <dt-cite key="ha2018worldmodels,DBLP:conf/gecco/RisiS19"></dt-cite> as baselines.
 While our reproduced numbers do not exactly match the reported scores, they are within error bounds, and close enough for the purpose of testing for generalization.
@@ -202,7 +241,7 @@ Unlike baseline methods, our agent focuses only task critical factors, it is thu
 ## Conclusion and Future Work
 
 The paper demonstrated that self-attention is a powerful module for creating RL agents that is capable of solving challenging vision-based tasks.
-Our agent achieves state of the art results on CarRacing and DoomTakeCover with significantly less parameters than conventional methods, and is easily interpretable in pixel space.
+Our agent achieves state of the art results on CarRacing and DoomTakeCover with significantly fewer parameters than conventional methods, and is easily interpretable in pixel space.
 Trained with neuroevolution, the agent learned to devote most of its attention to visual hints that are task critical and is therefore able to generalize to environments where task irrelevant elements are modified while conventional methods fail.
 
 Neuroevolution is a powerful toolbox for training intelligent agents, yet its adoption in RL is limited because its effectiveness when applied to large deep models was not clear until only recently <dt-cite key="such2017deep,DBLP:conf/gecco/RisiS19"></dt-cite>.
