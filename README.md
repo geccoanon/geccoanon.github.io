@@ -1,4 +1,4 @@
-# Deep Neuroevolution of Self-Interpretable Agents
+# Neuroevolution of Self-Interpretable Agents
 
 This repo contains the source for the anonymous submission for GECCO 2020.
 
