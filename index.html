@@ -1,0 +1,215 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+body {
+  overflow-x: hidden;
+}
+.scroll-down {
+  width: 80px;
+  height: 40px;
+  right: 10px;
+  bottom: 10px;
+  position: absolute;
+  font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #FFFFFF;
+  opacity: 0;
+  -webkit-transition: opacity 2s ease-in;
+  -moz-transition: opacity 2s ease-in;
+  -o-transition: opacity 2s ease-in;
+  -ms-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
+}
+.scroll-down span {
+  margin-top: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-100%, 0) rotate(45deg);
+  transform-origin: 100% 100%;
+  height: 2px;
+  width: 10px;
+  background: #FFFFFF;
+}
+.scroll-down span:nth-of-type(2) {
+  transform-origin: 0 100%;
+  transform: translate(0, 0) rotate(-45deg);
+}
+.spinner {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  -webkit-animation: rotation .6s infinite linear;
+  -moz-animation: rotation .6s infinite linear;
+  -o-animation: rotation .6s infinite linear;
+  animation: rotation .6s infinite linear;
+  border-left: 6px solid rgba(0, 174, 239, .15);
+  border-right: 6px solid rgba(0, 174, 239, .15);
+  border-bottom: 6px solid rgba(0, 174, 239, .15);
+  border-top: 6px solid rgba(0, 174, 239, .8);
+  border-radius: 100%;
+  top: calc(50% - 100px);
+  left: calc(50% - 80px);
+  right: auto;
+  bottom: auto;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+.transparent {
+  opacity: 0;
+}
+
+figcaption {
+  padding: 0.5em;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+dt-article figcaption {
+  padding: 0.5em;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+dt-article figcaption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+dt-article figcaption b {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+*.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+*.svgunselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background: none;
+    pointer-events: none;
+}
+</style>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- roboto font -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+
+<!--<script src="lib/jquery-1.12.4.min.js"></script>
+<script src="lib/mobile-detect.min.js"></script>-->
+<script src="lib/template.v1.js"></script>
+
+<script type="text/front-matter">
+  title: "Evolving Modular Soft Robots without Explicit Inter-Module Communication using Local Self-Attention"
+  description: ""
+</script>
+<body>
+<div style="text-align: center;">
+<table style="width: 100%;" cellspacing="0" cellpadding="0"><tr>
+<td style="width: 50%;border: 0px solid transparent;"><video src="assets/biped/best-biped-4.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video></td>
+<td style="width: 50%;border: 0px solid transparent;"><video src="assets/comb/best-comb-4.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video></td>
+</tr></table>
+
+</div>
+
+<dt-article id="dtbody">
+
+<div style="text-align: center;">
+<figcaption style="text-align: left; color:#FF6C00; padding-top: 0;"><br/>In this work, we use the same neural controller inside each voxel, with shared parameters. Each controller uses self-attention to compute importance scores among the local inputs.</figcaption>
+<figcaption style="text-align: left; padding-top: 0;"><br/>
+</figcaption>
+</div>
+
+<dt-byline class="l-page transparent"></dt-byline>
+<h1> Evolving Modular Soft Robots without Explicit Inter-Module Communication using Local Self-Attention</h1>
+<p></p>
+<dt-byline class="l-page" id="authors_section" hidden>
+<div class="byline">
+  <div class="authors">
+    <div class="author">
+        <a class="name" href="https://gecco-2022.sigevo.org/">Anonymous</a>
+        <a class="affiliation" href="https://gecco-2022.sigevo.org/">Submission</a>
+    </div>
+  </div>
+  <div class="date">
+    <div class="month">Feb 3</div>
+    <div class="year">2022</div>
+  </div>
+</div>
+</dt-byline>
+</dt-byline>
+<p>This is the Supplementary Material page with videos of our experimental results. Please see the paper for details.</p>
+<hr>
+<h2>1) Evolution of the self-attention controller of a biped-shaped Voxel-based Soft Robot</h2>
+<p><video class="b-lazy" data-src="assets/biped/attention-biped-4.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 100%; padding-top: 0;" ></video></p>
+<h2>2) Evolution of the self-attention controller of a comb-shaped Voxel-based Soft Robot</h2>
+<p><video class="b-lazy" data-src="assets/comb/attention-comb-4.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 100%; padding-top: 0;" ></video></p>
+<h2>3) Fine-tuning on a small biped the self-attention evolved on a large one</h2>
+<p><video class="b-lazy" data-src="assets/finetune-biped-large/finetune-biped-large-4.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 100%; padding-top: 0;" ></video></p>
+<h2>4) Fine-tuning on a large biped the self-attention evolved on a small one;</h2>
+<p><video class="b-lazy" data-src="assets/finetune-biped-small/finetune-biped-small-4.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 100%; padding-top: 0;" ></video></p>
+<h2>5) Fine-tuning on a small comb the self-attention evolved on a large one;</h2>
+<p><video class="b-lazy" data-src="assets/finetune-comb-large/finetune-comb-large-4.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 100%; padding-top: 0;" ></video></p>
+<h2>6) Fine-tuning on a large comb the self-attention evolved on a small one.</h2>
+<p><video class="b-lazy" data-src="assets/finetune-comb-small/finetune-comb-small-4.mp4" type="video/mp4" autoplay muted playsinline loop style="width: 100%; padding-top: 0;" ></video></p>
+</dt-article>
+<dt-appendix>
+<h2>Acknowledgements</h2>
+<p>This article was prepared using the <a href="https://distill.pub">Distill</a> <a href="https://github.com/distillpub/template">template</a>.</p>
+<h2>Open Source Code</h2>
+<p>Code to reproduce results in this work will be released upon the paper's publication.</p>
+<h2>Reuse</h2>
+<p>Diagrams and text are licensed under Creative Commons Attribution <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> with the <a href="https://github.com/geccoanon/geccoanon.github.io">source available on GitHub</a>, unless noted otherwise. The figures that have been reused from other sources don’t fall under this license and can be recognized by the citations in their caption.</p>
+</dt-appendix>
+</dt-appendix>
+</body>
+<script type="text/bibliography">
+@ARTICLE{openai_gym,
+  author = {Brockman, G. and Cheung, V. and Pettersson, L. and Schneider, J. and Schulman, J. and Tang, J. and Zaremba, W.},
+  title={OpenAI Gym},
+  journal={Preprint arXiv:1606.01540},
+  year = 2016,
+  month = jun,
+  url = {https://arxiv.org/abs/1606.01540},
+}
+</script>
+<script src="lib/blazy.js"></script>
+<script>
+  // blazy code
+  var bLazy = new Blazy({
+    success: function(){
+      updateCounter();
+    }
+  });
+
+  // not needed, only here to illustrate amount of loaded images
+  var imageLoaded = 0;
+
+  function updateCounter() {
+    imageLoaded++;
+    console.log("blazy image loaded: "+imageLoaded);
+  }
+</script>
